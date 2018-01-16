@@ -1,0 +1,72 @@
+[global_config]
+  focus = mouse
+  title_hide_sizetext = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#1f1d45"
+    background_darkness = 0.78
+    background_type = transparent
+    cursor_color = "#efbf38"
+    foreground_color = "#f8dcc0"
+    palette = "#050404:#bd0013:#4ab118:#e7741e:#0f4ac6:#665993:#70a598:#f8dcc0:#4e7cbf:#fc5f5a:#9eff6e:#efc11a:#1997c6:#9b5953:#c8faf4:#f6f5fb"
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[Espresso]]
+    background_color = "#323232"
+    background_type = transparent
+    cursor_color = "#d6d6d6"
+    foreground_color = "#ffffff"
+    palette = "#353535:#d25252:#a5c261:#ffc66d:#6c99bb:#d197d9:#bed6ff:#eeeeec:#535353:#f00c0c:#c2e075:#e1e48b:#8ab7d9:#efb5f7:#dcf4ff:#ffffff"
+  [[JetBrains Darcula]]
+    background_color = "#202020"
+    cursor_color = "#ffffff"
+    foreground_color = "#adadad"
+    palette = "#000000:#fa5355:#126e00:#c2c300:#4581eb:#fa54ff:#33c2c1:#adadad:#555555:#fb7172:#67ff4f:#ffff00:#6d9df1:#fb82ff:#60d3d1:#eeeeee"
+  [[LiquidCarbonTransparent]]
+    cursor_color = "#ffffff"
+    foreground_color = "#afc2c2"
+    palette = "#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc:#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc"
+  [[Monokai Remastered]]
+    background_color = "#0c0c0c"
+    cursor_color = "#fc971f"
+    foreground_color = "#d9d9d9"
+    palette = "#1a1a1a:#f4005f:#98e024:#fd971f:#9d65ff:#f4005f:#58d1eb:#c4c5b5:#625e4c:#f4005f:#98e024:#e0d561:#9d65ff:#f4005f:#58d1eb:#f6f6ef"
+  [[Ocean]]
+    background_color = "#224fbc"
+    cursor_color = "#7f7f7f"
+    foreground_color = "#ffffff"
+    palette = "#000000:#990000:#00a600:#999900:#0000b2:#b200b2:#00a6b2:#bfbfbf:#666666:#e50000:#00d900:#e5e500:#0000ff:#e500e5:#00e5e5:#e5e5e5"
+  [[OneHalfDark]]
+    background_color = "#282c34"
+    cursor_color = "#a3b3cc"
+    foreground_color = "#dcdfe4"
+    palette = "#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4:#282c34:#e06c75:#98c379:#e5c07b:#61afef:#c678dd:#56b6c2:#dcdfe4"
+  [[Purple Rain]]
+    background_color = "#21084a"
+    cursor_color = "#ff271d"
+    foreground_color = "#fffbf6"
+    palette = "#000000:#ff260e:#9be205:#ffc400:#00a2fa:#815bb5:#00deef:#ffffff:#565656:#ff4250:#b8e36e:#ffd852:#00a6ff:#ac7bf0:#74fdf3:#ffffff"
+  [[Red Sands]]
+    background_color = "#7a251e"
+    cursor_color = "#ffffff"
+    foreground_color = "#d7c9a7"
+    palette = "#000000:#ff3f00:#00bb00:#e7b000:#0072ff:#bb00bb:#00bbbb:#bbbbbb:#555555:#bb0000:#00bb00:#e7b000:#0072ae:#ff55ff:#55ffff:#ffffff"
+  [[Solarized Dark Higher Contrast]]
+    background_color = "#001e27"
+    cursor_color = "#f34b00"
+    foreground_color = "#9cc2c3"
+    palette = "#002831:#d11c24:#6cbe6c:#a57706:#2176c7:#c61c6f:#259286:#eae3cb:#006488:#f5163b:#51ef84:#b27e28:#178ec8:#e24d8e:#00b39e:#fcf4dc"
+  [[Ubuntu]]
+    background_color = "#300a24"
+    cursor_color = "#bbbbbb"
+    foreground_color = "#eeeeec"
