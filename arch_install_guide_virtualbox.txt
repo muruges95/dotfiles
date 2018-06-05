@@ -1,0 +1,122 @@
+## SETTING UP FOR ARCH_CHROOT ##
+# Check internet connectivity
+ping 1.1.1.1
+
+# List partitions
+fdisk -l
+
+# Do partitioning
+cfdisk
+
+# Choose dos, primary, make bootable (/)
+
+# Have another for home partition, primary
+
+# Have one last one for swap, same size as ram allocated, make it type linux swap
+
+# Write changes to the disk, then exit
+
+# Create ext4 partition on the / and home partitions
+mkfs.ext4 /dev/sdaX
+mkfs.ext4 /dev/sdaY
+
+# Create swap partition and start using it
+mkswap /dev/sdaZ
+swapon
+
+# mount the partitions onto the live installer system so we can install to it
+mount /dev/sdaX /mnt
+mkdir /mnt/home
+mount /dev/sdaY /mnt/home
+
+# Install necessary binaries to / and generate fstable
+pacstrap /mnt base base-devel
+genfstab /mnt >> /mnt/etc/fstab
+
+# Go into arch system
+arch-chroot /mnt /bin/bash
+
+## CONFIG OF ARCH ##
+# Edit /etc/locale.gen ; Find en_US.UTF-8 line and uncomment ; Activate with:
+
+locale-gen
+
+# Add lang to sys
+echo 'LANG=en_US.UTF-8' >> /etc/locale.conf
+
+# Change zone to singapore; Correct hardware clock
+ln -sf /usr/share/zoneinfo/Singapore /etc/localtime
+hwclock --systohc --utc
+
+# set root password
+passwd
+
+# set hostname (archie here)
+echo archie >> /etc/hostname
+
+# Ensure /etc/hosts has the following format:
+
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	myhostname.localdomain	myhostname
+
+# enable dhcpcd
+systemctl enable dhcpcd
+
+# Creating user muruges
+useradd -m -G wheel muruges
+
+# Change sudoer settings; Uncomment the following:
+
+Defaults targetpw
+%wheel ALL=(ALL) ALL
+
+# Set password for this user as well
+passwd muruges
+
+# Install bootloader
+pacman -S grub os-prober
+grub-install /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Done!
+exit
+reboot
+
+## Installing graphics stuff (enter as non-root)
+
+# Installing i3 and related stuff (terminator is used for the terminal)
+
+pacman -S i3 dmenu xorg xorg-xinit terminator
+
+# Add i3 to xinit config (~/.xinitrc)
+
+#!/bin/bash
+exec i3
+
+# Can start right now with startx, but better to just write the script for it. Add following to bottom of /etc/profile :
+
+# autostart systemd default session on tty1
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+    exec startx
+fi
+
+# Installing yaourt
+
+sudo pacman -S --needed base-devel git wget yajl
+cd /tmp
+git clone https://aur.archlinux.org/package-query.git
+cd package-query/
+makepkg -si && cd /tmp/
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt/
+makepkg -si
+
+## Additional customization
+
+yaourt -Sy feh 
+
+# Download and use wallpaper
+
+wget http://wallpaperswide.com/download/moonlight_night-wallpaper-1920x1080.jpg -O bg.jpg
+feh --bg-scale bg.jpg
