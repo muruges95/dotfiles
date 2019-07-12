@@ -1,0 +1,5 @@
+MAC essentials:
+
+Alfred
+Iterm 2
+Terminal Font: FuraCodeNerdFontComplete-Medium 12
